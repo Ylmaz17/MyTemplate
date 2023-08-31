@@ -1,34 +1,41 @@
-<table class="table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>ÜrünKodu</th>
-        <th>Ürün Adı</th>
-        <th>Barkod</th>
-        <th>Fiyat</th>
-        <th>Kdv'li fiyat</th>
-        <th>Eklenme Tarihi</th>
-        <th>Stok</th>
-        <th>Marka</th>
-        <th>Durumu</th>
-        <th>Kategori</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{product.id}}</td>
-        <td>{{product.productCode}}</td>
-        <td>{{product.productName}}</td>
-        <td>{{product.barcode}}</td>
-        <td>{{product.unitPrice}}</td>
-        <td>{{product.taxRate}}</td>
-        <td>{{product.addedDate}}</td>
-        <td>{{product.stock}}</td>
-        <td>{{product.brand}}</td>
-        <td>{{product.status}}</td>
-       <!--  <td>{{product.description}}</td> -->
-        <!-- <td>{{product.image}}</td> -->
-        <td>{{product.categoryId}}</td>
-      </tr>
-    </tbody>
-  </table>
+<div class=" container d-grid gap-2 d-md-flex justify-content-md-end">
+  <button routerLink="/admin/product-add" class=" btn btn-primary" >Ürün Ekle</button>
+
+</div>
+<br>
+  <div class="">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>ÜrünKodu</th>
+          <th>Ürün Adı</th>
+          <th>Barkod</th>
+          <th>Fiyat</th>
+          <th>Kdv'li fiyat</th>
+          <th>Eklenme Tarihi</th>
+          <th>Stok</th>
+          <th>Marka</th>
+          <th>Durumu</th>
+          <th>Kategori</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{product.id}}</td>
+          <td>{{product.productCode}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.barcode}}</td>
+          <td>{{product.unitPrice}}</td>
+          <td>{{product.taxRate}}</td>
+          <td>{{product.addedDate}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.status}}</td>
+         <!--  <td>{{product.description}}</td> -->
+          <!-- <td>{{product.image}}</td> -->
+          <td>{{product.categoryId}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

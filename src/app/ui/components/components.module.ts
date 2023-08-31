@@ -6,11 +6,13 @@ import { HomeModule } from './home/home.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     ProductsModule,
     HomeModule
-  ]
+  ],
+  exports:[]
 })
 export class ComponentsModule { }

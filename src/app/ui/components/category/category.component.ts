@@ -12,11 +12,11 @@ export class CategoryComponent implements OnInit {
   currentCategory :Category;
   constructor(private categoryService:CategoryService) { }
   ngOnInit(): void {
-    this.getCategories();
+    //this.getCategories();
   }
-  getCategories() {
-    this.categoryService.getCategories().subscribe(response=>{
-      this.categories = response.data
-    })   
-  }
+  // getCategories() {
+  //   this.categoryService.getCategories().subscribe(response=>{
+  //     this.categories = response.data
+  //   })   
+  // }
 }

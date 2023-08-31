@@ -1,12 +1,13 @@
 export interface Product {
     id: number;
-    productCode: string;
     productName: string;
+    productCode: string;
     barcode: string;
     unitPrice: number;
+    stock: number;
     taxRate: number;
     addedDate: any;
-    stock: number;
+    
     brand: string;
     status: boolean;
     description: string;

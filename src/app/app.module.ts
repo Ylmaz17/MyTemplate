@@ -9,8 +9,8 @@ import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HttpClientModule } from '@angular/common/http';
-import { NgbCarouselModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgIf } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -27,7 +27,7 @@ import { NgIf } from '@angular/common';
         UiModule,
         ToastrModule.forRoot(),
         NgxSpinnerModule,
-        NgbModule,
+        ReactiveFormsModule,
     ]
 })
 export class AppModule { }

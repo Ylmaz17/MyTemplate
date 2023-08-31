@@ -12,7 +12,8 @@ const routes: Routes = [
       {path:'dashboard',loadChildren:()=>import("./admin/components/dashboard/dashboard.module").then(module=>DashboardModule)},
       { path: "customers", loadChildren: () => import("./admin/components/customers/customers.module").then(module => module.CustomersModule) },
       { path: "orders", loadChildren: () => import("./admin/components/orders/orders.module").then(module => module.OrdersModule) },
-      {path:"products",loadChildren:()=>import("./admin/components/products/products.module").then(module=>module.ProductsModule)}
+      {path:"products",loadChildren:()=>import("./admin/components/products/products.module").then(module=>module.ProductsModule)},
+      {path:"product-add",loadChildren:()=>import("./admin/components/product-add/product-add.module").then(module=>module.ProductAddModule)}
     ]
   },
   { path: '', component: HomeComponent },
