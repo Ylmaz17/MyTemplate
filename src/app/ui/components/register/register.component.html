@@ -1,0 +1,102 @@
+<div class="d-flex justify-content-center">
+    <h1>Üye Kayıt Formu</h1>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <div class="row">
+      <div class="col">
+        <form action="" id="userRegisterForm">
+          <div class="row">
+            <div class="filed col-6 mt-1">
+              <label class="my-1" for="userName" class="form-label">Adınız :</label>
+              <input maxlength="15" minlength="3" type="text" class="form-control" id="userName" name="userName"
+                aria-describedby="nameHelper" aria-label="isim" autofocus required />
+            </div>
+            <div class="filed col-6 mt-1">
+              <label class="my-1" for="userSurname" class="form-label">Soyadınız :</label>
+              <input maxlength="25" minlength="3" type="text" class="form-control" id="userSurname" name="userSurname"
+                aria-describedby="nameHelper" aria-label="soyadı" required/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mt-1">
+              <label class="my-1" for="birthDate" class="form-label">Doğum Tarihiniz :</label>
+              <input type="date" class="form-control" id="birthDate" name="birthDate" aria-describedby="birthDateHelper"
+                min="1959-12-31"  />
+            </div>
+            <div class="col-6 mt-1">
+              <label class="my-1" for="userPhone" class="form-label">Telefon Numarası :</label>
+              <input type="tel" class="form-control" id="userPhone" name="userPhone"  size="11" minlength="11" maxlength="11" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6 mt-1">
+              <label class="my-1" for="userMail" class="form-label">E-Posta Adresiniz :</label>
+              <input type="email" class="form-control" id="userMail " name="userMail" aria-describedby="emailHelper"
+                placeholder="e-posta adresinizi giriniz..." aria-label="e posta adresi giriş alanı" required />
+            </div>
+            <div class="col-6 mt-1">
+              <label class="my-1" for="userPhoto" class="form-label">Profil Fotoğrafı :</label>
+              <input type="file" class="form-control" id="userPhoto" name="userPhoto" accept="image/jpeg" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label class="my-1" for="userPassword" class="form-label">Şifreniz</label>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="******"
+                  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  />
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" onclick="passwordShow()" />
+                </div>
+              </div>
+              <span id="validationPassword" class="text-danger"> </span>
+            </div>
+            <div class="col-6">
+              <label class="my-1" for="userPasswordAgain" class="form-label">Şifre Tekrar</label>
+              <div class="input-group mb-3">
+                <input type="password" class="form-control" id="userPasswordAgain" placeholder="******"  />
+                <div class="input-group-text">
+                  <input class="form-check-input mt-0" type="checkbox" onclick="passwordShow()" />
+                </div>
+              </div>
+              <span id="validationPasswordAgain" class="text-danger"> </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label class="mt-1" for="cityId" class="form-label">Şehir Seçiniz</label>
+              <select class="form-select" id="cityId">
+                <option value="0">Şehir Seçiniz...</option>
+              </select>
+            </div>
+            <div class="col-6">
+              <label class="mt-1" for="districtId" class="form-label">İlçe Seçiniz</label>
+              <select class="form-select" id="districtId" >
+                <option value="0">İlçe Seçiniz...</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <label for="addressText" class="form-label">Açık adres bilgisi</label>
+            <div>
+              <textarea class="form-control" placeholder="cadde sokak daire no..." id="addressText" name="addressText"
+                style="height: 100px"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <label class="my-1" for="correct">
+              Lütfen karakterleri doğrulayın</label>
+            <div class="col-6 mt-2">
+              <span class="form-control">A Q I J</span>
+            </div>
+            <div class="col-6 mt-2">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+          <div class="actions actions d-grid gap-1 my-3">
+          </div>
+        </form>
+      </div>
+    </div>
+</div>

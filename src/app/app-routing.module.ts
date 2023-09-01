@@ -19,7 +19,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   {path:'home',loadChildren:()=>import('./ui/components/home/home.module').then(module=>module.HomeModule)},
   {path:'products',loadChildren:()=>import('./ui/components/products/products.module').then(module=>module.ProductsModule)},
-  {path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)}
+  {path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)},
+  {path:'login',loadChildren:()=>import('./ui/components/login/login.module').then(module=>module.LoginModule)},
+  {path:'register',loadChildren:()=>import('./ui/components/register/register.module').then(module=>module.RegisterModule)}
+,
 
   //{path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)}
   //{ path: 'products', component: ProductComponent },
