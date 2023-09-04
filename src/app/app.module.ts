@@ -8,19 +8,24 @@ import { UiModule } from './ui/ui.module';
 import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgIf } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
     declarations: [
         AppComponent
     ],
-    providers: [],
+    providers: [
+        {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+      
+    ],
     bootstrap: [AppComponent],
     imports: [
         HttpClientModule,
         BrowserModule,
+        FormsModule,
         BrowserAnimationsModule,
         AppRoutingModule,
         AdminModule,
@@ -28,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
         ToastrModule.forRoot(),
         NgxSpinnerModule,
         ReactiveFormsModule,
-    ]
+    ],
+    
 })
 export class AppModule { }

@@ -4,10 +4,11 @@ import { DashboardComponent } from './admin/components/dashboard/dashboard.compo
 import { DashboardModule } from './admin/components/dashboard/dashboard.module';
 import { LayoutComponent } from './admin/layout/layout.component';
 import { HomeComponent } from './ui/components/home/home.component';
+import { UserLoginGuard } from './guards/user-login.guard';
 
 const routes: Routes = [
   {
-    path: "admin", component: LayoutComponent, children: [
+    path: "admin", canActivate: [UserLoginGuard], component: LayoutComponent, children: [
       { path: "", component: DashboardComponent },
       {path:'dashboard',loadChildren:()=>import("./admin/components/dashboard/dashboard.module").then(module=>DashboardModule)},
       { path: "customers", loadChildren: () => import("./admin/components/customers/customers.module").then(module => module.CustomersModule) },
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:'products',loadChildren:()=>import('./ui/components/products/products.module').then(module=>module.ProductsModule)},
   {path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)},
   {path:'login',loadChildren:()=>import('./ui/components/login/login.module').then(module=>module.LoginModule)},
-  {path:'register',loadChildren:()=>import('./ui/components/register/register.module').then(module=>module.RegisterModule)}
+  {path:'register',loadChildren:()=>import('./ui/components/register/register.module').then(module=>module.RegisterModule)},
+  {path:'test',loadChildren:()=>import('./ui/components/test/test.module').then(module=>module.TestModule)}
+
 ,
 
   //{path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -32,17 +32,27 @@ export class LoginComponent implements OnInit {
       this.authService.login(loginModel).subscribe({
         next: (response) => {
           this.toastrService.info(response.message)
-          console.log(response)
           if (this.loginForm.value.checkbox1 == true) {
             localStorage.setItem("token", response.data.token)
+            localStorage.setItem("role", response.data.roles)
           }
-
         },
         error: (responseError) => {
-          console.log(this.loginForm.value)
+          this.validationClass()
           this.toastrService.error(responseError.error)
         }
       });
     }
+  }
+  validationClass(){
+    if(this.loginForm.valid){
+      return 'valid-feedback'
+    }
+    else{
+      return 'invalid-feedback'
+    }
+  }
+  get email():FormControl{
+    return this.loginForm.get("email") as FormControl
   }
 }
