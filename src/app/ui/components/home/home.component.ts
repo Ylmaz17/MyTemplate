@@ -9,17 +9,16 @@ import { ProductService } from 'src/app/services/products.service';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-	products: Product[] = [];
-	categories: Category[] = [];
+  products: Product[] = [];
+  categories: Category[] = [];
+  setProduct: Product;
 
   dataLoaded = false;
-  filterText="";
-  constructor(private productService:ProductService,private categoryService:CategoryService ) {}
+  filterText = "";
+  constructor(private productService: ProductService, private categoryService: CategoryService) { }
   ngOnInit(): void {
-        this.getProducts()
-        this.getCategories()
-      
-    
+    this.getProducts()
+    this.getCategories()
   }
 
   images = [
@@ -27,19 +26,22 @@ export class HomeComponent implements OnInit {
     ("./assets/image/paratoner.jpg"),
     ("./assets/image/electric.jpg"),
     ("./assets/image/camera.jpg")
-   
+
   ]
   pcimage = "./assets/image/pc.jpg"
   getProducts() {
-    this.productService.getProducts().subscribe(response=>{
+    this.productService.getProducts().subscribe(response => {
       this.products = response.data
       this.dataLoaded = true;
-    })   
+    })
   }
   getCategories() {
-    this.categoryService.getCategories().subscribe(response=>{
+    this.categoryService.getCategories().subscribe(response => {
       this.categories = response.data
-    })   
+    })
+  }
+  setCurrentProduct(product: Product) {
+    this.setProduct = product
   }
 
 }

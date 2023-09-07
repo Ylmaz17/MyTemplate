@@ -23,6 +23,7 @@ const routes: Routes = [
   {path:'category',loadChildren:()=>import('./ui/components/category/category.module').then(module=>module.CategoryModule)},
   {path:'login',loadChildren:()=>import('./ui/components/login/login.module').then(module=>module.LoginModule)},
   {path:'register',loadChildren:()=>import('./ui/components/register/register.module').then(module=>module.RegisterModule)},
+  {path:'product-detail/:id',loadChildren:()=>import('./ui/components/product-detail/product-detail.module').then(module=>module.ProductDetailModule)},
   {path:'test',loadChildren:()=>import('./ui/components/test/test.module').then(module=>module.TestModule)}
 
 ,

@@ -17,7 +17,9 @@ export class UserLoginGuard {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    if (this.authService.isAuthenticated()) {
+    var result = this.authService.loginUserInfo(localStorage.getItem('token'))
+    //this.authService.isAuthenticated()
+    if (result.role.includes('admin')) {
       return true;
     } else {
       this.router.navigate(["login"])

@@ -1,0 +1,140 @@
+<nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container">
+      <div class="container d-flex flex-wrap ">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control " placeholder="Ürünüzü bulun..." aria-label="Search">
+        </form>
+        <div class="text-end ">
+          <button routerLink="/login" type="button" class="btn btn-outline-primary me-2">Giriş</button>
+          <button routerLink="/register" type="button" class="btn btn-warning">Kayıt Ol</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  
+<div class="container border-1 border border-light">
+    Bilgisayar> Dizüstü bilgisayarlar> Asus> Lenovo IdeaPad
+</div>
+<div class="container my-2 border-1 ">
+    <div class="row ">
+        <div class="col-md-6 my-2 ">
+            <!-- Slide Code -->
+            <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="true"
+                data-bs-interval="true">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{product.image}}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Geri</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">İleri</span>
+                </button>
+            </div>
+            <!-- Slide Code End-->
+        </div>
+        <div class="col-md-6 my-2 bg-light">
+            <div class="container">
+                <h4 id="title">{{product.productName}}</h4>
+                <span id="brand">{{product.brand}}</span>
+            </div>
+            <hr>
+            <div class="container">
+                <span class="fs-1" id="unitPrice"> </span><span class="fs-4">{{product.unitPrice}} TL</span>
+            </div>
+            <div class="container">
+                <button type="button" class="btn btn-primary  my-3 fs-4">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container ">
+        <div class="row mt-1 row-cols gy-5">
+            <div class="col">
+                <ul class="nav nav-tabs" id="mytab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button type="button" class="nav-link active" id="tabProductDetail" data-bs-toggle="tab"
+                            data-bs-target="#productDetail" role="tab" aria-controls="productDetail"
+                            aria-selected="true">Ürün
+                            Özellikleri
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button type="button" class="nav-link" id="tabComment" data-bs-toggle="tab"
+                            data-bs-target="#comment" role="tab" aria-controls="comment"
+                            aria-selected="false">Yorumlar</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button type="button" class="nav-link" id="tabPaymentMethods" data-bs-toggle="tab"
+                            data-bs-target="#paymentMethods" role="tab" aria-controls="paymentMethods"
+                            aria-selected="true">Ödeme &
+                            Taksit Seçenekleri</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button type="button" class="nav-link" id="tabQuestionAnswer" data-bs-toggle="tab"
+                            data-bs-target="#questionanswer" role="tab" aria-controls="questionanswer"
+                            aria-selected="false">Soru
+                            Cevap</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button type="button" class="nav-link" id="tabReturnConditions" data-bs-toggle="tab"
+                            data-bs-target="#returnConditions" role="tab" aria-controls="returnConditions"
+                            aria-selected="true">İade
+                            Koşulları</button>
+                    </li>
+                </ul>
+                <div class="tab-content mt-4">
+                    <div class="tab-pane fade show active" id="productDetail" role="tabpanel">
+                        <h5 class="display-9"> {{product.productName}}</h5>
+                        <p class="p-1">
+                            {{product.description}}
+                        </p>
+                    </div>
+                    <div class="tab-pane fade show " id="comment" role="tabpanel" aria-labelledby="tabComment">
+                        <h3 class="display-6"> Ürün Yorumarı </h3>
+                        <p>Yorum alanı
+                        </p>
+                    </div>
+
+                    <div class="tab-pane fade show " id="paymentMethods" role="tabpanel"
+                        aria-labelledby="tabPaymentMethods">
+                        <div style="height: 40px; width: 320px;">
+                            <p class="text-center">A Bankası</p>
+                        </div>
+                        <div class=" border-1 border border-light" style="height:auto; width: 320px;">
+                            <table class="table table-striped table-hover" id="installmentTable">
+                                <thead>
+                                    <tr>
+                                        <th>Taksit</th>
+                                        <th>Taksit Tutarı</th>
+                                        <th>Toplam Tutar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade show " id="questionanswer" role="tabpanel"
+                        aria-labelledby="tabQuestionanswer">
+                        <h3 class="display-6"> Soru Cevap</h3>
+                        <p>Soru Alanı
+                        </p>
+                    </div>
+                    <div class="tab-pane fade show " id="returnConditions" role="tabpanel"
+                        aria-labelledby="tabReturnConditions">
+                        <h3 class="display-6"> İade alanı</h3>
+                        <p>Ödeme tablosu
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>

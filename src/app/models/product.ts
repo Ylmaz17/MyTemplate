@@ -7,7 +7,6 @@ export interface Product {
     stock: number;
     taxRate: number;
     addedDate: any;
-    
     brand: string;
     status: boolean;
     description: string;
