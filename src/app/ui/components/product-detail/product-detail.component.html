@@ -23,8 +23,8 @@
             <div id="carouselExampleControlsNoTouching" class="carousel slide" data-bs-touch="true"
                 data-bs-interval="true">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="{{product.image}}" class="d-block w-100" alt="...">
+                    <div *ngFor="let image of images " class="carousel-item active">
+                        <img src={{image.imagePath}} class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching"

@@ -1,4 +1,4 @@
-export interface Product {
+export interface HomePageProduct {
     id: number;
     productName: string;
     productCode: string;
@@ -13,4 +13,5 @@ export interface Product {
     categoryId1: number;
     categoryId2: number;
     categoryId3: number;
+    imagePath:string;
   }

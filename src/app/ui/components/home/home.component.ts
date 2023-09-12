@@ -1,21 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
+import { Image } from 'src/app/models/image';
 import { CategoryService } from 'src/app/services/category.service';
+import { ImageService } from 'src/app/services/image.service';
 import { ProductService } from 'src/app/services/products.service';
+import { HomePageProduct } from 'src/app/models/homePageProduct';
+import { HttpClient } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  products: Product[] = [];
+  products: HomePageProduct[] = [];
   categories: Category[] = [];
   setProduct: Product;
-
   dataLoaded = false;
   filterText = "";
-  constructor(private productService: ProductService, private categoryService: CategoryService) { }
+
+  constructor(
+    private productService: ProductService, 
+    private categoryService: CategoryService,) {
+  }
   ngOnInit(): void {
     this.getProducts()
     this.getCategories()
@@ -28,15 +36,15 @@ export class HomeComponent implements OnInit {
     ("./assets/image/camera.jpg")
 
   ]
-  pcimage = "./assets/image/pc.jpg"
+
   getProducts() {
-    this.productService.getProducts().subscribe(response => {
+    this.productService.getHomePageProduct().subscribe(response => {
       this.products = response.data
       this.dataLoaded = true;
     })
   }
   getCategories() {
-    this.categoryService.getCategories().subscribe(response => {
+    this.categoryService.getCategory1().subscribe(response => {
       this.categories = response.data
     })
   }

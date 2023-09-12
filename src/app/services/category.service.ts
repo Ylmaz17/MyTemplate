@@ -9,9 +9,17 @@ import { Category } from '../models/category';
 })
 export class CategoryService {
 
-  apiUrl = 'https://localhost:7119/api/Categories/getbymaincategory';
+  apiUrl = 'https://localhost:7119/api/Categories/';
   constructor(private httpClient: HttpClient) { }
-  getCategories(): Observable<ListResponseModel<Category>> {
-    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl);
+  getCategory1(): Observable<ListResponseModel<Category>> {
+    return this.httpClient.get<ListResponseModel<Category>>(this.apiUrl+'getall');
+  }
+  getCategory2(categoryId:number): Observable<ListResponseModel<Category>> {
+    let newPath = this.apiUrl + "geybyparentid2?parentId=" + categoryId
+    return this.httpClient.get<ListResponseModel<Category>>(newPath);
+  }
+  getCategory3(categoryId:number): Observable<ListResponseModel<Category>> {
+    let newPath = this.apiUrl + "geybyparentid3?parentId=" + categoryId
+    return this.httpClient.get<ListResponseModel<Category>>(newPath);
   }
 }

@@ -4,138 +4,151 @@
       <div class="card-header">
         <h5 class="title">Ürün ekle</h5>
       </div>
-      <div class="card-body">
-        <form [formGroup]="productAddForm">
-          <div class="mb-3">
-            <label for="productName">Ürün adı</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="productName"
-                formControlName="productName"
-                class="form-control"
-                placeholder="Ürün adı"
-              />
+      <form [formGroup]="productAddForm" class=" container row g-3 needs-validation" novalidate>
+        <div class="row mt-4">
+        <div class="col-md-3">
+          <label for="productName" class="form-label">Ürün Adı</label>
+          <input formControlName="productName" type="text" class="form-control" id="productName" minlength="5" required>
+          <div>
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="productCode" class="form-label">Ürün Kodu</label>
+          <input formControlName="productCode" type="text" class="form-control" id="productCode" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-3">
+          <label for="barcode" class="form-label">Barkod</label>
+          <div class="input-group has-validation">
+            <input formControlName="barcode" type="text" class="form-control" id="barcode" maxlength="15" required>
+            <div class="invalid-feedback">
+              Please choose a username.
             </div>
           </div>
-          <div class="mb-3">
-            <label for="productCode">Ürün Kodu</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="productCode"
-                formControlName="productCode"
-                class="form-control"
-                placeholder="Ürün kodu"
-              />
-            </div>
-          </div> 
-           <div class="mb-3">
-            <label for="barcode">Barkod</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="barcode"
-                formControlName="barcode"
-                class="form-control"
-                placeholder="ürün barkodu"
-              />
-            </div>
+        </div>
+        <div class="col-md-3">
+          <label for="brand" class="form-label">Marka</label>
+          <select formControlName="brand" class="form-select" id="brand" required>
+            <option selected disabled value="">Marka Seçiniz...</option>
+            <option *ngFor="let brand of brands" value="{{brand.id}}"> {{brand.brandName}}</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
           </div>
-          <div class="mb-3">
-            <label for="unitPrice">Fiyat</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="unitPrice"
-                formControlName="unitPrice"
-                class="form-control"
-                placeholder="Fiyat"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="stock">stok</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="stock"
-                formControlName="stock"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="taxRate">Kdv</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="taxRate"
-                formControlName="taxRate"
-                class="form-control"
-                placeholder="kdv oranı"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="brand">Marka</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="brand"
-                formControlName="brand"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <!-- status -->
-          <div class="form-check form-switch">
-            <input formControlName="status" class="form-check-input" type="checkbox" id="status" checked>
-            <label class="form-check-label" for="status">Durum</label>
-          </div>
-          <div class="mb-3">
-            <label for="description">Açıklama</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="description"
-                formControlName="description"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="image">Resim</label>
-            <div class="form-group">
-              <input
-                type="text"
-                id="image"
-                formControlName="image"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="categoryId">categoy</label>
-            <div class="form-group">
-              <input
-                type="number"
-                id="categoryId"
-                formControlName="categoryId"
-                class="form-control"
-              />
-            </div>
-          </div>
-          
-          
-        </form>
+        </div>
       </div>
+        <div class=" mt-4"><label for="category1" class="form-label">Ürün Kategorisini Seçiniz</label></div>
+        <div class="row ">
+          <div class="col-md-4">
+            <label for="category1" class="form-label">Marka</label>
+            <select (change)="getCategories2()"  formControlName="categoryId1" class="form-select" id="categoryId1"  required>
+              <option selected disabled >Seçiniz...</option>
+              <option *ngFor="let category1 of categories1" value="{{category1.id}}">{{category1.categoryName}}</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid state.
+            </div>
+          </div>
+          <div class="col-md-4">
+            <select (change)="getCategories3()"  formControlName="categoryId2" class="form-select" id="category2" name="category2" required>
+              <option  selected disabled >Seçiniz...</option>
+              <option  >Seçiniz...</option>
+              <option *ngFor="let category2 of categories2" value="{{category2.id}}">{{category2.categoryName}}</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select a valid state.
+            </div>
+          </div>
+        <div class="col-md-4">
+          <select  formControlName="categoryId3" class="form-select" id="category2" name="category3" required>
+            <option selected disabled >Seçiniz...</option> <option  >Seçiniz...</option>
+            <option  *ngFor="let category3 of categories3" value="{{category3.id}}">{{category3.categoryName}}</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+      </div>
+      <div class="row  mt-4">
+        <div class="col-md-2">
+          <label for="taxRate" class="form-label">Kdv Oranı</label>
+          <select formControlName="taxRate" class="form-select" id="taxRate" value=" " required>
+            <option selected disabled value="">Seçiniz...</option>
+            <option>18</option>
+            <option>20</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="unitPrice" class="form-label">Fiyat</label>
+          <input id="unitPrice" formControlName="unitPrice" type="text" class="form-control" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-2">
+          <label for="stock" class="form-label">Stok</label>
+          <input formControlName="stock" type="number" class="form-control" id="stock" min="1" required>
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+      </div>
+        <div class="col-md-12">
+          <label for="validationTextarea" class="form-label">Ürün Açıklaması</label>
+          <textarea class="form-control" id="validationTextarea" required></textarea>
+          <div class="invalid-feedback">
+            Please enter a message in the textarea.
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+            <label class="form-check-label" for="invalidCheck">
+              Agree to terms and conditions
+            </label>
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+        </div>
+      </form>
       <div class="card-footer">
-        <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+        <button class="btn btn-fill btn-primary" (click)="add()" (click)="addImage()">Ekle</button>
       </div>
     </div>
   </div>
 </div>
+<script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+</script>
+<!-- 
+  
+ -->
+
 <!-- <div class="content">
     <div class="col-md-12">
         <div class="card">

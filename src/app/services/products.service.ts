@@ -6,6 +6,7 @@ import { ResponseModel } from '../models/responseModel';
 import { Product } from '../models/product';
 import { ListResponseModel } from '../models/listResponseModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
+import { HomePageProduct } from '../models/homePageProduct';
 
 @Injectable({
   providedIn: 'root'
@@ -24,4 +25,8 @@ export class ProductService {
     let newPath = this.apiUrl + "getbyid?productId=" + id
     return this.httpClient.get<SingleResponseModel<Product>>(newPath);
   }
+  getHomePageProduct():Observable<ListResponseModel<HomePageProduct>>{
+    return this.httpClient.get<ListResponseModel<HomePageProduct>>('https://localhost:7119/api/Products/getallhomepageproduct')
+  }
+  
 }

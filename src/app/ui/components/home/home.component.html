@@ -73,10 +73,11 @@
     <div class="row row-cols-1 row-cols-md-3 g-4" style="max-width: 1200px;">
       <div class="col" *ngFor="let product of products">
         <div class="card h-100">
-          <img (click)="setCurrentProduct(product)" routerLink="/product-detail/{{product.id}}" src="{{product.image}}"
-            class="card-img-top" alt="{{product.image}}">
+           <img (click)="setCurrentProduct(product)" routerLink="/product-detail/{{product.id}}" 
+          src="{{product.imagePath}}"
+            class="card-img-top" alt="{{product.id}}"> 
           <div class="card-body" id={{product.id}}>
-            <h5 (click)="setCurrentProduct(product)" class="card-title">{{product.productName}}</h5>
+            <h5 (click)="setCurrentProduct(product)" routerLink="/product-detail/{{product.id}}" class="card-title">{{product.productName}}</h5>
             <p class="card-text fs-3 fw-bold text-center"> {{product.unitPrice}} TL</p>
           </div>
           <div class="card-footer">
