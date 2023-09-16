@@ -6,13 +6,12 @@ import { LoginModule } from './login/login.module';
 import { RegisterModule } from './register/register.module';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductDetailModule } from './product-detail/product-detail.module';
-
+import { CategoryDetailModule } from './category-detail/category-detail.module';
 
 
 @NgModule({
   declarations: [
-  
-    ProductDetailComponent
+    ProductDetailComponent,
   ],
   imports: [
     CommonModule,
@@ -20,8 +19,9 @@ import { ProductDetailModule } from './product-detail/product-detail.module';
     HomeModule,
     LoginModule,
     RegisterModule,
-    ProductDetailModule
+    ProductDetailModule,
+    CategoryDetailModule
   ],
-  exports:[]
+  exports: []
 })
 export class ComponentsModule { }

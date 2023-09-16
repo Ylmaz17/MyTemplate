@@ -1,0 +1,82 @@
+<nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container">
+      <div class="container d-flex flex-wrap ">
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+          <input type="search" class="form-control " placeholder="Ürünüzü bulun..." aria-label="Search">
+        </form>
+        <div class="text-end ">
+          <button routerLink="/login" type="button" class="btn btn-outline-primary me-2">Giriş</button>
+          <button routerLink="/register" type="button" class="btn btn-warning">Kayıt Ol</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <!-- <li *ngFor="let category of categories" value="{{category.id}}" class="nav-item"><a routerLink="category-detail/{{category.id}}" class="nav-link"
+            aria-current="page">{{category.categoryName}}</a></li> -->
+      </ul>
+    </header>
+  </div>
+  <br><br><br>
+  <div class="container ">
+    <div class="row">
+      <div class="col-md-3 border"> Filtreler
+        <hr>
+        <div class="">
+          <p>Markalar</p>
+          <div *ngFor="let brand of brands" class="form-check">
+            <input class="form-check-input" type="checkbox" value="{{brand.id}}" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+              {{brand.brandName}}
+            </label>
+          </div>
+          <br>
+          <hr>
+          <p>Fiyat Aralığı</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              0-1500
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              1500-3000
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+            <label class="form-check-label" for="exampleRadios1">
+              3000-5000
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+  
+        <div class="">
+          <div class="row row-cols-1 row-cols-md-4 g-4" style="max-width: 1200px;">
+            <div class="col" *ngFor="let product of products">
+              <div class="card h-100">
+                <img  routerLink="/product-detail/{{product.id}}" src="{{product.imagePath}}" class="card-img-top" alt="{{product.id}}">
+                <div class="card-body" id={{product.id}}>
+                  <h5 (click)="setCurrentProduct(product)" >
+                    {{product.productName}}</h5>
+                  <p class="card-text fs-3 fw-bold text-center"> {{product.unitPrice}} TL</p>
+                </div>
+                <div class="card-footer">
+                  <div class="d-grid gap-2 col-6 mx-auto">
+                    <button  class="btn btn-success">Sepete Ekle</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

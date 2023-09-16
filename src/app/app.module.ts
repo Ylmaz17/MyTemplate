@@ -9,7 +9,6 @@ import { AdminModule } from './admin/admin.module';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { NgIf } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 

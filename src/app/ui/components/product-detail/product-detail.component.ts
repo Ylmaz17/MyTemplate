@@ -19,7 +19,6 @@ export class ProductDetailComponent implements OnInit {
     private imageService:ImageService) { }
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-
       this.getProductDetail(params["id"])
       this.getProductImage(params["id"])
     })

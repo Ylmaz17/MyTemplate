@@ -28,5 +28,10 @@ export class ProductService {
   getHomePageProduct():Observable<ListResponseModel<HomePageProduct>>{
     return this.httpClient.get<ListResponseModel<HomePageProduct>>('https://localhost:7119/api/Products/getallhomepageproduct')
   }
+  // https://localhost:7119/api/Products/getallbycategoryid?categoryId=1
+  getAllByCategoryId(categoryId:number):Observable<ListResponseModel<HomePageProduct>>{
+    let newPath = this.apiUrl + "getallcategorypageproducts?categoryId=" + categoryId
+    return this.httpClient.get<ListResponseModel<HomePageProduct>>(newPath)
+  }
   
 }
