@@ -3,14 +3,14 @@ import { Category } from 'src/app/models/category';
 import { Product } from 'src/app/models/product';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/products.service';
-import { HomePageProduct } from 'src/app/models/homePageProduct';
+import { CustomerProduct } from 'src/app/models/customerProduct';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  products: HomePageProduct[] = [];
+  products: CustomerProduct[] = [];
   categories: Category[] = [];
   setProduct: Product;
   dataLoaded = false;
@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit {
     })
   }
   getCategories() {
-    this.categoryService.getCategory1().subscribe(response => {
+    this.categoryService.mainCatgeory().subscribe(response => {
       this.categories = response.data
     })
   }

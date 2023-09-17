@@ -43,29 +43,29 @@
         <div class=" mt-4"><label for="category1" class="form-label">Ürün Kategorisini Seçiniz</label></div>
         <div class="row ">
           <div class="col-md-4">
-            <label for="category1" class="form-label">Marka</label>
-            <select (change)="getCategories2()"  formControlName="categoryId1" class="form-select" id="categoryId1"  required>
+            <label for="mainCategory" class="form-label">Marka</label>
+            <select (change)="subcategoryOne()"  formControlName="mainCategory" class="form-select" id="mainCategory"  required>
               <option selected disabled >Seçiniz...</option>
-              <option *ngFor="let category1 of categories1" value="{{category1.id}}">{{category1.categoryName}}</option>
+              <option *ngFor="let category of maincategories" value="{{category.id}}">{{category.categoryName}}</option>
             </select>
             <div class="invalid-feedback">
               Please select a valid state.
             </div>
           </div>
           <div class="col-md-4">
-            <select (change)="getCategories3()"  formControlName="categoryId2" class="form-select" id="category2" name="category2" required>
+            <select (change)="subcategoryTwo()"  formControlName="subcategoryOne" class="form-select" id="subcategoryOne" name="subcategoryOne" required>
               <option  selected disabled >Seçiniz...</option>
               <option  >Seçiniz...</option>
-              <option *ngFor="let category2 of categories2" value="{{category2.id}}">{{category2.categoryName}}</option>
+              <option *ngFor="let category of subcategoriesOne" value="{{category.id}}">{{category.categoryName}}</option>
             </select>
             <div class="invalid-feedback">
               Please select a valid state.
             </div>
           </div>
         <div class="col-md-4">
-          <select  formControlName="categoryId3" class="form-select" id="category2" name="category3" required>
+          <select  formControlName="subcategoryTwo" class="form-select" id="subcategoryTwo" name="subcategoryTwo" required>
             <option selected disabled >Seçiniz...</option> <option  >Seçiniz...</option>
-            <option  *ngFor="let category3 of categories3" value="{{category3.id}}">{{category3.categoryName}}</option>
+            <option  *ngFor="let category of subcategoriesTwo" value="{{category.id}}">{{category.categoryName}}</option>
           </select>
           <div class="invalid-feedback">
             Please select a valid state.

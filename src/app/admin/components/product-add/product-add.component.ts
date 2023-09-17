@@ -19,9 +19,9 @@ export class ProductAddComponent implements OnInit {
   selectedFile: File = null;
   a: File = null
   brands: Brand[];
-  categories1: Category[];
-  categories2: Category[];
-  categories3: Category[];
+  maincategories: Category[];
+  subcategoriesOne: Category[];
+  subcategoriesTwo: Category[];
   productAddForm: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
@@ -51,42 +51,29 @@ export class ProductAddComponent implements OnInit {
       status: [true],
       description: [""],
       image: [""],
-      categoryId1: ["",Validators.required],
-      categoryId2: [""],
-      categoryId3: [""],
+      mainCategory: ["",Validators.required],
+      subcategoryOne: [""],
+      subcategoryTwo: [""],
 
     })
   }
   
-  // idSelected1(event) {
-  //   this.categoryIdSelected1 = this.productAddForm.get('category1').value
-  //   console.log(this.categoryIdSelected1)
-  //   this.getCategories2(this.categoryIdSelected1)
-  // }
-  // idSelected2(event) {
-  //   this.categoryIdSelected2 = this.productAddForm.get('category2').value
-  //   this.getCategories3(this.categoryIdSelected2)
-  // }
-  // idSelected3(event) {
-  //   this.categoryIdSelected3 = this.productAddForm.get('category3').value
-  //   console.log(this.categoryIdSelected3)
-  // }
   getCategories() {
-    this.categoryService.getCategory1().subscribe(response => {
-      this.categories1 = response.data
-      console.log(this.categories1)
+    this.categoryService.mainCatgeory().subscribe(response => {
+      this.maincategories = response.data
+      console.log(this.maincategories)
 
     })
   }
-  getCategories2() {
-    this.categoryService.getCategory2(this.productAddForm.get('categoryId1').value).subscribe(response => {
+  subcategoryOne() {
+    this.categoryService.subcategoryOne(this.productAddForm.get('mainCategory').value).subscribe(response => {
       console.log(response.data)
-      this.categories2 = response.data
+      this.subcategoriesOne = response.data
     })
   }
-  getCategories3() {
-    this.categoryService.getCategory3(this.productAddForm.get('categoryId2').value).subscribe(response => {
-      this.categories3 = response.data
+  subcategoryTwo() {
+    this.categoryService.subcategoryTwo(this.productAddForm.get('subcategoryOne').value).subscribe(response => {
+      this.subcategoriesTwo = response.data
     })
   }
   getAllBrand() {

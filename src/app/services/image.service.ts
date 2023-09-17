@@ -15,10 +15,7 @@ export class ImageService {
   apiUrl = 'https://localhost:7119/api/ProductImage/getall';
 
   constructor(private httpClient: HttpClient) { }
-  addTest(imagetest: Image): Observable<ResponseModel> {
-    console.log(this.httpClient.post<ResponseModel>('https://localhost:7119/api/ProductImage/add', imagetest))
-    return this.httpClient.post<ResponseModel>('https://localhost:7119/api/ProductImage/add', imagetest)
-  }
+  
   add(formData:FormData):Observable<ResponseModel>{
     return this.httpClient.post<ResponseModel>('https://localhost:7119/api/ProductImage/add',formData)
   }

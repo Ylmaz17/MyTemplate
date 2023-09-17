@@ -17,8 +17,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
         AppComponent
     ],
     providers: [
-        {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
-      
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -31,8 +30,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
         UiModule,
         ToastrModule.forRoot(),
         NgxSpinnerModule,
-        ReactiveFormsModule,
-    ],
-    
+        ReactiveFormsModule
+    ]
 })
 export class AppModule { }

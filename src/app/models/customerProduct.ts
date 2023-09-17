@@ -1,4 +1,4 @@
-export interface HomePageProduct {
+export interface CustomerProduct {
     id: number;
     productName: string;
     productCode: string;

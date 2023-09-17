@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/models/brand';
-import { HomePageProduct } from 'src/app/models/homePageProduct';
+import { CustomerProduct } from 'src/app/models/customerProduct';
 import { Product } from 'src/app/models/product';
 import { BrandService } from 'src/app/services/brand.service';
 import { ProductService } from 'src/app/services/products.service';
@@ -13,7 +13,7 @@ import { ProductService } from 'src/app/services/products.service';
 })
 export class CategoryDetailComponent implements OnInit {
   brands:Brand[];
-  products : HomePageProduct[]=[];
+  products : CustomerProduct[]=[];
   setProduct: Product;
   constructor(private productService: ProductService,private activatedRoute: ActivatedRoute,private brandService: BrandService) {}
 ngOnInit(): void {
