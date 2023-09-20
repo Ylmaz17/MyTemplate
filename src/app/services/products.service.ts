@@ -16,17 +16,17 @@ export class ProductService {
   
   constructor(private httpClient: HttpClient) { }
 
-  getProducts(): Observable<ProductResponseModel> {
-    return this.httpClient.get<ProductResponseModel>(this.apiUrl + 'getall');
+  getProducts(): Observable<ListResponseModel<Product>> {
+    return this.httpClient.get<ListResponseModel<Product>>(this.apiUrl + 'getall');
   }
   
   add(product: Product): Observable<ResponseModel> {
     return this.httpClient.post<ResponseModel>(this.apiUrl + "add", product)
   }
 
-  getProductDetail(id: number): Observable<SingleResponseModel<Product>> {
-    let newPath = this.apiUrl + "getbyid?productId=" + id
-    return this.httpClient.get<SingleResponseModel<Product>>(newPath);
+  getProductDetail(id: number): Observable<SingleResponseModel<CustomerProduct>> {
+    let newPath = this.apiUrl + "getbyproductdetail?productId=" + id
+    return this.httpClient.get<SingleResponseModel<CustomerProduct>>(newPath);
   }
 
   getHomePageProduct():Observable<ListResponseModel<CustomerProduct>>{

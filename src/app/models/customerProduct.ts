@@ -10,8 +10,8 @@ export interface CustomerProduct {
     brand: string;
     status: boolean;
     description: string;
-    categoryId1: number;
-    categoryId2: number;
-    categoryId3: number;
+    mainCategory: number;
+    subcategoryOne: number;
+    subcategoryTwo: number;
     imagePath:string;
   }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from 'src/app/models/category';
-import { Product } from 'src/app/models/product';
 import { CategoryService } from 'src/app/services/category.service';
 import { ProductService } from 'src/app/services/products.service';
 import { CustomerProduct } from 'src/app/models/customerProduct';
+import { Product } from 'src/app/models/product';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',

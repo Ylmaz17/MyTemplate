@@ -1,4 +1,6 @@
-export interface Product {
+import { Image } from "./image";
+
+export interface Test {
     id: number;
     productName: string;
     productCode: string;
@@ -11,6 +13,7 @@ export interface Product {
     status: boolean;
     description: string;
     mainCategory: number;
-    subcategoryOne: number;
-    subcategoryTwo: number;
+    categoryId2: number;
+    categoryId3: number;
+    image:Image[]
   }
