@@ -1,41 +1,45 @@
 <div class=" container d-grid gap-2 d-md-flex justify-content-md-end">
-  <button routerLink="/admin/product-add" class=" btn btn-primary" >Ürün Ekle</button>
+  <button routerLink="/admin/product-add" class=" btn btn-primary">Ürün Ekle</button>
 
 </div>
 <br>
-  <div class="">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>ÜrünKodu</th>
-          <th>Ürün Adı</th>
-          <th>Barkod</th>
-          <th>Fiyat</th>
-          <th>Kdv'li fiyat</th>
-          <th>Eklenme Tarihi</th>
-          <th>Stok</th>
-          <th>Marka</th>
-          <th>Durumu</th>
-          <th>Kategori</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{product.id}}</td>
-          <td>{{product.productCode}}</td>
-          <td>{{product.productName}}</td>
-          <td>{{product.barcode}}</td>
-          <td>{{product.unitPrice}}</td>
-          <td>{{product.taxRate}}</td>
-          <td>{{product.addedDate}}</td>
-          <td>{{product.stock}}</td>
-          <td>{{product.brand}}</td>
-          <td>{{product.status}}</td>
-         <!--  <td>{{product.description}}</td> -->
-          <!-- <td>{{product.image}}</td> -->
-          <td>{{product.mainCategory}}>{{product.subcategoryOne}}>{{product.subcategoryTwo}}></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="container-fluid">
+  <form class="d-flex" role="search">
+    <input class="form-control me-2" type="text"   id="filterText"  placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+  </form>
+</div>
+<div class="">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>ÜrünKodu</th>
+        <th>Ürün Adı</th>
+        <th>Barkod</th>
+        <th>Fiyat</th>
+        <th>Kdv'li fiyat</th>
+        <th>Eklenme Tarihi</th>
+        <th>Stok</th>
+        <th>Marka</th>
+        <th>Durumu</th>
+        <th>Kategori</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{product.id}}</td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.productName}}</td>
+        <td>{{product.barcode}}</td>
+        <td>{{product.unitPrice|currency:'TL':'₺'}}</td>
+        <td>{{product.unitPrice}}</td>
+        <td>{{product.addedDate |date:'dd.MM.yyyy'}}</td>
+        <td>{{product.stock}}</td>
+        <td>{{product.brand}}</td>
+        <td>{{product.status ?'Satışta':'Satışa Kapalı'}}</td>
+        <td>{{product.mainCategory}}>{{product.subcategoryOne}}>{{product.subcategoryTwo}}></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

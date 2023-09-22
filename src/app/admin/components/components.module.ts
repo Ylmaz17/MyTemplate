@@ -10,7 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     ProductsModule,
@@ -18,7 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     DashboardModule,
     CustomersModule,
     ProductAddModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
+    
   ]
 })
 export class ComponentsModule { }

@@ -11,10 +11,14 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        VatAddedPipe,
+        FilterPipe
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
